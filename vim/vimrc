@@ -1,0 +1,14 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.dotfiles/vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Plugin 'gmarik/vundle'
+
+" The bundles you install will be listed here
+filetype plugin indent on
+
+" The rest of your config follows here
