@@ -1,7 +1,11 @@
 [core]
         editor = vim
         pager = less
-
+	excludesfile = ~/.gitignore
+[advice]
+    	statusuoption = false
+[push]
+    	default = simple
 [color]
         diff = auto
         status = auto
