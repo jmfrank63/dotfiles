@@ -12,6 +12,5 @@ Plugin 'gmarik/vundle'
 filetype plugin indent on
 
 " The rest of your config follows here
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'bling/vim-airline'
 set laststatus=2
-set t_Co=256 
