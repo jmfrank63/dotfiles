@@ -15,3 +15,5 @@ filetype plugin indent on
 Plugin 'bling/vim-airline'
 set laststatus=2
 set t_Co=256
+
+Plugin 'davidhalter/jedi-vim'
