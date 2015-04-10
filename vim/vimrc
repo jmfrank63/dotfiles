@@ -1,3 +1,11 @@
+" Autoreload of .vimrc
+autocmd! bufwritepost .vimrc source %
+
+" Better copy & paste
+set pastetoggle=<F3>
+set clipboard=unnamed
+
+" Prepare for plugins and vundle
 set nocompatible
 filetype off
 
@@ -7,9 +15,6 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Plugin 'gmarik/vundle'
-
-" Autoreload of .vimrc
-!autocmd writebufpost .vimrc source %
 
 " The bundles you install will be listed here
 filetype plugin indent on
