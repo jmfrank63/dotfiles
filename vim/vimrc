@@ -18,6 +18,7 @@ Plugin 'gmarik/vundle'
 
 " The bundles you install will be listed here
 filetype plugin indent on
+syntax on
 
 " The rest of your config follows here
 Plugin 'bling/vim-airline'
