@@ -1,6 +1,9 @@
 " Autoreload of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+"set the map leader key
+let mapleader=","
+
 " Better copy & paste
 set pastetoggle=<F3>
 set clipboard=unnamed
@@ -29,3 +32,5 @@ Plugin 'davidhalter/jedi-vim'
 
 Plugin 'scrooloose/nerdtree'
 map <F2> :NERDTreeToggle<CR>
+
+Plugin 'drmikehenry/vim-fontsize'
