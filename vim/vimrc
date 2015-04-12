@@ -34,3 +34,5 @@ Plugin 'scrooloose/nerdtree'
 map <F2> :NERDTreeToggle<CR>
 
 Plugin 'drmikehenry/vim-fontsize'
+
+Plugin 'honza/vim-snippets'
