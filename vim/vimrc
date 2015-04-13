@@ -15,10 +15,19 @@ set laststatus=2
 set t_Co=256
 
 " Python Code completion
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 
-" Python and more codecompletion
-" Plugin 'Valloric/YouCompleteMe'
+" Auto-pair for parentesis completion
+Plugin 'jiangmiao/auto-pairs'
+
+" Supertab for omnicompletion
+Plugin 'ervandew/supertab'
+
+" Javascript codecompletion
+Plugin 'marijnh/tern_for_vim'
+
+" Allmost universal codecompletion
+Plugin 'Valloric/YouCompleteMe'
 
 " Directory listing and manipulation
 Plugin 'scrooloose/nerdtree'
@@ -33,10 +42,20 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" Php autocomplete
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/unite.vim'
+Plugin 'm2mdas/phpcomplete-extended'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<c-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -44,6 +63,7 @@ let g:UltiSnipsEditSplit="vertical"
 " ************************************
 " The rest of your config follows here
 filetype plugin indent on
+" set omnifunc=syntaxcomplete#Complete
 syntax on
 
 " Autoreload of .vimrc
@@ -59,4 +79,5 @@ set clipboard=unnamed
 " set the tabwidth to 4
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
-
+" run python directly from vim
+map <F5> :w<CR>:!python %<CR>
