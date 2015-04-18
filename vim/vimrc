@@ -81,7 +81,6 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " run python directly from vim
 map <F5> :w<CR>:!python %<CR>
-<<<<<<< HEAD
 
 " Bind nohl
 " Removes highlight of your last search
@@ -132,8 +131,5 @@ vmap < <gv
 "" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 "" au InsertLeave * match ExtraWhitespace /\s\+$/
 
-=======
 " highlight Pmenu ctermfg=1 ctermbg=3 guifg=#ffffff guibg=#0000ff
-
 highlight Pmenu ctermfg=red ctermbg=lightred
->>>>>>> 48e0ec6fb4090d6eeb192f63dffa1cfc43d8c062
