@@ -9,6 +9,9 @@ call vundle#rc()
 " required! 
 Plugin 'gmarik/vundle'
 
+" Color schemes
+Plugin 'flazz/vim-colorschemes'
+
 " The bundles you install will be listed here
 Plugin 'bling/vim-airline'
 set laststatus=2
@@ -131,12 +134,7 @@ vmap < <gv
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=lightred guibg=lightred 
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
-" Color scheme
-" mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
-set t_Co=256
-" color wombat256mod
-
+color mac_classic
 " highlight Pmenu ctermfg=1 ctermbg=3 guifg=#ffffff guibg=#0000ff
 highlight Pmenu ctermfg=red ctermbg=lightred
 
