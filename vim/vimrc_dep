@@ -9,13 +9,13 @@ call vundle#rc()
 " required! 
 Plugin 'gmarik/vundle'
 
+" Dozens of color schemes
+Plugin 'flazz/vim-colorschemes'
+
 " The bundles you install will be listed here
 Plugin 'bling/vim-airline'
 set laststatus=2
 set t_Co=256
-
-" Python Code completion
-" Plugin 'davidhalter/jedi-vim'
 
 " Auto-pair for parentesis completion
 Plugin 'jiangmiao/auto-pairs'
