@@ -20,6 +20,9 @@ set t_Co=256
 " Auto-pair for parentesis completion
 Plugin 'jiangmiao/auto-pairs'
 
+" Emmet HTML and CSS
+Plugin 'mattn/emmet-vim'
+
 " Supertab for omnicompletion
 Plugin 'ervandew/supertab'
 
@@ -41,6 +44,9 @@ Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+
+" Python style checks
+Plugin 'scrooloose/syntastic'
 
 " Php autocomplete
 Plugin 'Shougo/vimproc'
@@ -133,3 +139,18 @@ autocmd CompleteDone * pclose
 
 " highlight Pmenu ctermfg=1 ctermbg=3 guifg=#ffffff guibg=#0000ff
 highlight Pmenu ctermfg=red ctermbg=lightred
+
+" Settings for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_html_tidy_exec = 'tidy'
+let g:syntastic_python_checkers = ['pylint']
+set number
+set colorcolumn=80
