@@ -8,7 +8,7 @@ git
 To install the repo clone it to a repository of your choice.
 I personally prefer .dotfiles
 
-###vim
+### vim
 Assumed the directory is ~/.dotfiles and you are located in your home directory:
 For vundle with (almost) no external dependencies:
 ln -s ~/.dotfiles/vim/.vimrc_nodep .vimrc
@@ -27,14 +27,14 @@ vim
 From within vim issue:
 :PluginInstall
 
-###bash
+### bash
 The files for bash are in ~/.dotfiles/bash
 You can source them directly or include them in your .bashrc or .profile
 Their names should tell you what they are for :-)
 
-###tern
+### tern
 A preconfigured project file for the javascript code completion
 
-###git
+### git
 Sometime some configfiles for git are always the same. You will find them here
 
