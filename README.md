@@ -9,7 +9,16 @@ To install the repo clone it to a repository of your choice.
 I personally prefer .dotfiles
 
 ### vim
-Assumed the directory is ~/.dotfiles and you are located in your home directory:
+Make sure you are running a recent vim vim 8 is safe.
+For ubuntu you get vim 8 by:
+
+    sudo add-apt-repository ppa:jonathonf/vim
+    sudo apt update
+    sudo apt install vim
+
+Assume your directory you cloned in is ~/.dotfiles 
+and you are located in your home directory:
+
 For vundle with (almost) no external dependencies:
 ln -s ~/.dotfiles/vim/.vimrc_nodep .vimrc
 
@@ -17,17 +26,22 @@ For vundle with external dependencies:
 ln -s ~/.dotfiles/vim/.vimrc_dep .vimrc
 
 To initialize for vim do:
-cd .dotfiles
-git submodule init
-git submodule update
-cd ~
+
+    cd .dotfiles
+    git submodule init
+    git submodule update
+    cd ~
 
 Start vim:
-vim
+    vim
+
 From within vim issue:
+:VimProcInstall
 :PluginInstall
 
+exit vim and build 
 ### bash
+
 The files for bash are in ~/.dotfiles/bash
 You can source them directly or include them in your .bashrc or .profile
 Their names should tell you what they are for :-)
