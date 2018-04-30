@@ -4,6 +4,11 @@
 
 env=~/.ssh/agent.env
 
+SSHAGENT=/usr/bin/ssh-agent
+SSHAGENTARGS="-s -t 48h"
+SSHADD=/usr/bin/ssh-add
+SSHADDARGS="-t 48h .ssh/id_rsa"
+
 # Note: Don't bother checking SSH_AGENT_PID. It's not used
 #       by SSH itself, and it might even be incorrect
 #       (for example, when using agent-forwarding over SSH).
