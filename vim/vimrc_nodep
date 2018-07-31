@@ -45,9 +45,9 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Php autocomplete
-Plugin 'Shougo/vimproc'
-Plugin 'Shougo/unite.vim'
-Plugin 'm2mdas/phpcomplete-extended'
+" Plugin 'Shougo/vimproc'
+" Plugin 'Shougo/unite.vim'
+" Plugin 'm2mdas/phpcomplete-extended'
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<Tab>', '<Down>']

@@ -1,0 +1,64 @@
+#!/bin/bash
+if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    __GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
+    source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+# Activate current folder's pipenv virtualenv
+# or accept an explicit virtualenv name
+workon() {
+    if [ $# -eq 0 ]
+    then
+        source "$(pipenv --venv)/bin/activate"
+    else
+        source "~/.virtualenvs/$1/bin/activate"
+    fi
+}
+
+# Making virtualenv alias
+mkvenv() {
+    cd ~/.virtualenvs
+    virtualenv "$@"
+    cd -
+    workon "$1"
+}
+
+# Automatic virtualenv sourcing
+function auto_pipenv_shell {
+    if [ ! -n "$VIRTUAL_ENV" ]; then
+        if [ -f "Pipfile" ] ; then
+            workon
+        fi
+    fi
+}
+function cd {
+    builtin cd "$@"
+    auto_pipenv_shell
+}
+
+export WORKON_HOME=~/Envs
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+complete -C $(which aws_completer) aws
+export PROJECT_HOME=$HOME/Documents/Projects
+alias ls='ls -GFh'
+alias ph="cd $PROJECT_HOME"
+eval $(/usr/libexec/path_helper -s)
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/latest/Contents/Home
+export AIRFLOW_HOME=~/Documents/Projects/Python/airflow-tutorial/airflow
+
+PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+PATH="~/.local/bin:$PATH"
+PATH="~/.config/bin:$PATH"
+PATH="~/.composer/vendor/bin:$PATH"
+PATH="/usr/local/opt/php/bin:$PATH"
+export PATH
+
+#export SSLKEYLOGFILE=$HOME/sslkeys.log
+export CPPFLAGS="-I/usr/local/opt/curl/include -I/usr/local/opt/openssl@1.1/include/"
+export LDFLAGS="-L/usr/local/opt/curl/lib -L/usr/local/opt/openssl@1.1/include/"
+auto_pipenv_shell
+
