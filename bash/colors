@@ -1,5 +1,0 @@
-#!/bin/bash
-# set colored terminal
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
