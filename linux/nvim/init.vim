@@ -5,8 +5,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Powerline without python dependency
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'altercation/vim-colors-solarized'
-
+Plug 'overcache/NeoSolarized'
 " Auto pairs will match parenthesis brackets braces and quotes
 Plug 'jiangmiao/auto-pairs'
 
@@ -26,7 +25,7 @@ syntax enable
 " Solarized light colors
 set termguicolors
 set background=light
-colorscheme solarized
+colorscheme NeoSolarized
 
 " Remaps
 map <F3> :NERDTreeToggle<CR>
