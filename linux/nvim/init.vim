@@ -23,6 +23,10 @@ Plug '907th/vim-auto-save'
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+" Toml
+Plug 'cespare/vim-toml'
+Plug 'mhinz/vim-crates'
+
 call plug#end()
 
 " Autosave configuration
@@ -36,13 +40,13 @@ let g:airline#extensions#tabline#formatter = 'default'
 syntax enable
 " Solarized light colors
 set termguicolors
-set background=light
+set background=dark
 colorscheme NeoSolarized
 
 " Remaps
 map <F3> :NERDTreeToggle<CR>
-map <Leader>\ <ESC>
-map <Leader>n :set relativenumber!<CR>
+nnoremap <Leader>n :set relativenumber!<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Command line fuzzy search
 set rtp+=/usr/local/opt/fzf
@@ -54,3 +58,54 @@ imap <S-Tab> <Plug>(completion_smart_s_tab)
 inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
+
+autocmd BufRead Cargo.toml call crates#toggle()
+
+set relativenumber
+set number
+set pastetoggle=<F2>
+
+let g:clipboard = {
+      \   'name': 'clipboard',
+      \   'copy': {
+      \      '+': 'xclip -sel clip', 
+      \      '*': 'xclip -sel clip',
+      \   },
+      \   'paste': {
+      \      '+': 'xclip -sel clip -out',
+      \      '*': 'xclip -sel clip -out',
+      \   },
+      \   'cache_enabled': 1,
+      \ }
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+  exec 'noremap' key '<Nop>'
+  exec 'inoremap' key '<Nop>'
+  exec 'cnoremap' key '<Nop>'
+endfor
+
+" Spaces & Tabs {{{
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4    " number of spaces to use for autoindent
+set expandtab       " tabs are space
+set autoindent
+set copyindent      " copy indent from the previous line
+" }}} Spaces & Tabs
+
+" Clipboard {{{
+set clipboard+=unnamedplus
+" }}} Clipboard
+
