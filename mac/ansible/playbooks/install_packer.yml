@@ -1,0 +1,35 @@
+- name: Install Packer for Neovim on MacOS Ventura
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Check if Homebrew is installed
+      stat: 
+        path: /opt/homebrew/bin/brew
+      register: brew_installed
+
+    - name: Install Homebrew
+      shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      when: not brew_installed.stat.exists
+
+    - name: Check if Neovim is installed
+      stat: 
+        path: /opt/homebrew/bin/nvim
+      register: nvim_installed
+
+    - name: Install Neovim via Homebrew
+      homebrew:
+        name: neovim
+        state: latest
+      when: not nvim_installed.stat.exists
+
+    - name: Check if Packer is installed
+      stat: 
+        path: ~/.local/share/nvim/site/pack/packer
+      register: packer_installed
+
+    - name: Install Packer for Neovim
+      shell: |
+         git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+           ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+      when: not packer_installed.stat.exists
+
